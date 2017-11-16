@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.principal {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  margin: 40px 0 0 0
+}
+
+.phone-image {
+  margin: 0 40px 0 0;
+}
+
+.separator {
+  border: 0;
+  width: 5px;
+  background: -webkit-linear-gradient(to bottom, #00000000, #F5C85F, #00000000);
+  background: linear-gradient(to bottom, #00000000, #F5C85F, #00000000)
+}
+
+.logo-image {
+  align-self: center;
+  margin: 0 0 0 40px;
+}
+
+.top-bar {
+  border: 0;
+  height: 5px;
+  background: #F5C85F;
+}
+
+@media (max-width: 1200px) {
+  .phone-image {
+    display: none;
+  }
+  .separator {
+    display: none;
+  }
+}
