@@ -2,6 +2,8 @@
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
+  height: 100%;
+  overflow: hidden;
 }
 
 .principal {
@@ -43,12 +45,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
-p {
+b {
   font-family: Open Sans;
-  flex-wrap: wrap;
 }
 
 .bold {
@@ -63,6 +63,41 @@ p {
   color: #999;
   font-size: 14px;
   text-align: center;
+}
+
+.footer {
+  box-shadow: 0 -5px #EEE;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  margin: 50px 0 0 0;
+  background: #F5C85F;
+  height: 500000px;
+}
+
+.footer-text {
+  color: #FFF;
+  margin: 20px 0 0 0;
+  font-size: 18px;
+}
+
+.email {
+  margin: 20px 0 0 0;
+  border-radius: 15px;
+  height: 40px;
+  width: 400px;
+}
+
+.button {
+  margin: 20px 0 0 0;
+  color: #FFF;
+  border: solid;
+  border-width: 1px;
+  border-color: #FFF;
+  border-radius: 10px;
+  font-family: Open Sans;
+  font-size: 18px;
+  padding: 15px;
 }
 
 @media (max-width: 1200px) {
