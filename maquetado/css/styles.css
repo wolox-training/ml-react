@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
-  height: 100%;
+  min-height: 100vh;
   overflow: hidden;
 }
 
@@ -10,7 +10,8 @@
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  margin: 40px 0 0 0
+  margin: 40px 0 0 0;
+  flex-grow: 2;
 }
 
 .phone-image {
@@ -19,8 +20,8 @@
 
 .separator {
   width: 5px;
-  background: -webkit-linear-gradient(to bottom, #00000000, #F5C85F, #00000000);
-  background: linear-gradient(to bottom, #00000000, #F5C85F, #00000000)
+  background: -webkit-linear-gradient(to bottom, transparent, #F5C85F, transparent);
+  background: linear-gradient(to bottom, transparent, #F5C85F, transparent)
 }
 
 .logo-image {
@@ -48,7 +49,7 @@
 }
 
 b {
-  font-family: Open Sans;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .bold {
@@ -95,7 +96,7 @@ b {
   border-width: 1px;
   border-color: #FFF;
   border-radius: 10px;
-  font-family: Open Sans;
+  font-family: 'Open Sans', sans-serif;
   font-size: 18px;
   padding: 15px;
 }
