@@ -4,39 +4,32 @@
   justify-content: center;
 }
 
-.principal {
+.main {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  margin: 40px 0 0 0
+  padding: 40px 0;
+  border-top: 5px solid #F5C85F;
 }
 
 .phone-image {
-  margin: 0 40px 0 0;
+  margin-right: 40px;
 }
 
 .separator {
   border: 0;
+  margin-right: 40px;
   width: 5px;
-  background: -webkit-linear-gradient(to bottom, #00000000, #F5C85F, #00000000);
-  background: linear-gradient(to bottom, #00000000, #F5C85F, #00000000)
+  background: -webkit-linear-gradient(to bottom, transparent, #F5C85F, transparent);
+  background: linear-gradient(to bottom, transparent, #F5C85F, transparent)
 }
 
 .logo-image {
   align-self: center;
-  margin: 0 0 0 40px;
-}
-
-.top-bar {
-  border: 0;
-  height: 5px;
-  background: #F5C85F;
 }
 
 @media (max-width: 1200px) {
-  .phone-image {
-    display: none;
-  }
+  .phone-image,
   .separator {
     display: none;
   }
