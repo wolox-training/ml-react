@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.main {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  padding: 40px 0;
+  border-top: 5px solid #F5C85F;
+}
+
+.phone-image {
+  margin-right: 40px;
+}
+
+.separator {
+  border: 0;
+  margin-right: 40px;
+  width: 5px;
+  background: -webkit-linear-gradient(to bottom, transparent, #F5C85F, transparent);
+  background: linear-gradient(to bottom, transparent, #F5C85F, transparent)
+}
+
+.logo-image {
+  align-self: center;
+}
+
+@media (max-width: 1200px) {
+  .phone-image,
+  .separator {
+    display: none;
+  }
+}
