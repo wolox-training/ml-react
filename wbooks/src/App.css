@@ -1,0 +1,75 @@
+.App {
+  display: flex;
+  flex-direction: column;
+}
+
+.App-logo {
+  margin: 25px 35px;
+  height: 40px;
+}
+
+.App-menu-item {
+  margin: 5px 15px;
+  height: 30px;
+  width: 30px;
+}
+
+.App-profile-img {
+  margin-left: 15px;
+  height: 40px;
+  width: 40px;
+}
+
+.App-menu {
+  margin: 25px 35px;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #FFF;
+  height:90px;
+  box-shadow: 0px 5px 5px #BBB;
+  color: white;
+}
+
+.Nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 65px 10px;
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.filter-bar {
+  margin-left: 20px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 0px;
+  background-color:#f4f4f4;
+  width:234px;
+  height:38px;
+}
+
+.search-bar {
+  margin-left: 20px;
+  padding-left: 12px;
+  padding-right: 12px;
+  border: 0px;
+  background-color:#f4f4f4;
+  width:196px;
+  height:38px;
+}
+
+.search-icon {
+  height: 24px;
+  width: 24px;
+  padding: 7px;
+  background-color: #a5cd39;
+}
