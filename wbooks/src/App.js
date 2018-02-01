@@ -11,13 +11,29 @@ class App extends Component {
 
   constructor() {
     super();
-    this.state = {value: ''};
-    this.handleFilter = this.handleFilter.bind(this);
+    this.state = {
+      filterType: '',
+      searchText: '',
+      searchTextChange: '',
+      filterTypeChange: 'author'
+    };
   }
 
-  handleFilter(event) {
-    this.Books.sortByField({filter: event.target.value});
-    this.setState({value: event.target.value});
+  handleFilter = (event) => {
+    console.log("It's filtering");
+    this.setState({filterTypeChange: event.target.value});
+  }
+
+  handleChange = (event) => {
+    this.setState({searchTextChange: event.target.value})
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.setState({
+      filterType: this.state.filterTypeChange ,
+      searchText: this.state.searchTextChange
+    })
   }
 
   render() {
@@ -33,17 +49,18 @@ class App extends Component {
         </header>
         <div className="Nav">
           <select className="filter-bar" placeholder="Seleccionar Filtro"
-          value={this.state.value} onChange={this.handleFilter}>
+          value={this.state.filterTypeChange} onChange={this.handleFilter}>
             <option value="author">Autor</option>
             <option value="title">Titulo</option>
           </select>
           <form className="search-container" onSubmit={this.handleSubmit}>
             <input className="search-bar" type="text" placeholder="Buscar..."
             onChange={this.handleChange} />
-            <img className="search-icon" type="submit" src={search} value="Submit" />
+            <img className="search-icon" type="submit" src={search} value="Submit"
+            onClick={this.handleSubmit}/>
           </form>
         </div>
-        <Books ref={instance => { this.Books = instance; }}/>
+        <Books filterType={this.state.filterType} filterText={this.state.searchText}/>
       </div>
     );
   }

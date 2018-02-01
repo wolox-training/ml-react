@@ -1,51 +1,28 @@
 import React, { Component } from 'react';
-import myData from './books.json';
+import myBooks from './books.json';
 import defaultBookIcon from './default_book.svg'
 import './Books.css';
 
 class Books extends Component {
-   constructor(props) {
-     super(props);
-     this.state = {
-       items: myData,
-     };
-     this.sortByField = this.sortByField.bind(this);
-   }
+  constructor(props) {
+    super(props);
+  }
 
-   sortByField(props) {
-     var toFilter =  this.state.items;
-     var filter = props.filter;
-     for (var i = 0; i < toFilter.length -1; i++) {
-       var iMin = i;
-       for (var j = i+1; j < toFilter.length; j++) {
-         var toFilterJ;
-         var toFilterImin;
-         if (filter == 'title') {
-           toFilterJ = (toFilter[j]).title;
-           toFilterImin = (toFilter[iMin]).title;
-         } else {
-           toFilterJ = (toFilter[j]).author;
-           toFilterImin = (toFilter[iMin]).author;
-         }
-         if (toFilterJ < toFilterImin) {
-           iMin = j;
-         }
-       }
-       if (iMin != i) {
-         var temp = toFilter[i];
-         toFilter[i] = toFilter[iMin];
-         toFilter[iMin] = temp;
-       }
-     }
-     this.setState({items: toFilter});
-   }
+  filteredBooks = () => {
+    if (this.props.filterText == '' || this.props.filterType == '') {
+      return myBooks;
+    }
 
-   render(){
-     let items = this.state.items;
-     let filter = this.state.filters;
+    return myBooks.filter(book => {
+      console.log((this.props.filterText));
+      return book[this.props.filterType].toUpperCase().includes(this.props.filterText.toUpperCase());
+    });
+  }
+
+  render(){
      return (
        <div className="body">
-        {items.map(item =>
+        {this.filteredBooks().map(item =>
           <div className="book">
           {(item.image_url == null) ? (
             <img className="default-book-icon" src={defaultBookIcon} />
