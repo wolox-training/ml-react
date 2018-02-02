@@ -1,11 +1,11 @@
-.body {
+.grid {
   display: grid;
   flex-flow: row wrap;
   justify-content: center;
   grid-template-columns: repeat(4, minmax(auto, 128px));
   grid-column-gap: 70px;
   grid-row-gap: 65px;
-  margin: 65px 358px;
+  margin-top: 65px;
 }
 
 .book {

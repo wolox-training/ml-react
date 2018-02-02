@@ -2,42 +2,153 @@
   display: flex;
   flex-flow: column wrap;
   align-items: center;
+  padding: 35px 34px;
+}
+
+.back {
+  font-size: 12px;
+  align-self: flex-start;
 }
 
 .book-detail {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
+  margin-top: 47px;
+  width: 70%;
 }
 
 .book-info {
   display: flex;
-  flex-flow: column wrap;
+  flex-flow: column;
+  max-height: 272px;
+  min-height: 272px;
 }
 
 .book-cover {
+  margin-right: 21px;
+  height: 272px;
+  width: 190px;
+}
 
+.default-book-cover {
+  height: 110px;
+  width: 110px;
+  padding: 81px 40px;
+  margin-right: 21px;
+  background-color: #d8d8d8;
 }
 
 .title {
-
+  font-size: 20px;
 }
 
-.detail {
+.author {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 22px;
+}
 
+.year {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.genre {
+  font-size: 16px;
+  margin-bottom: 12px;
+  margin-top: 0;
 }
 
 .description {
-
+  font-size:14px;
+  color:#999999;
+  line-height:19px;
+  margin: 0;
 }
 
 .rent-button {
+  background:#00adee;
+  width:192px;
+  height:38px;
+  border: 0;
+  font-size:20px;
+  font-weight: bold;
+  color:#fff;
+  margin-top: auto;
+}
 
+.separation {
+  background: #00adee;
+  width:70%;
+  height:2px;
+  margin: 36px;
 }
 
 .sugestions {
+  width: 70%;
+}
 
+.section-title {
+  font-size:20px;
+  color:#a5cd39;
+}
+
+.sugestions-list {
+  margin-left: 40px;
+  margin-top: 16px;
+}
+
+.sugestions-placeholder {
+  height: 54px;
+  width: 54px;
+  padding: 35px 16px;
+  margin-right: 54px;
+  background-color: #d8d8d8;
 }
 
 .comments {
+  width: 70%;
+}
 
+.new-comment {
+  display: flex;
+  flex-flow: row;
+  margin: 16px 40px;
+}
+
+.profile-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.write-comment {
+  margin-left: 16px;
+}
+
+.comment {
+  font-size:14px;
+}
+
+.comment-container {
+  display: flex;
+  flex-flow: column;
+}
+
+.comment-bar {
+  margin-top: 16px;
+  border:1px solid #979797;
+  width:666px;
+  height:73px;
+}
+
+.comment-button {
+  background:#a5cd39;
+  margin-top: 16px;
+  width:192px;
+  height:38px;
+  border: 0;
+  font-size:16px;
+  font-weight: bold;
+  color: #fff;
 }
