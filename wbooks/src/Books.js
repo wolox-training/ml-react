@@ -1,31 +1,54 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import myBooks from './books.json';
-import defaultBookIcon from './default_book.svg'
 import './Books.css';
+import BooksApi from './services/BooksApi';
+import BookCover from './BookCover';
 
 class Books extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      books: [],
+      fetchingBooks: false
+    };
+  };
+
+  componentDidMount() {
+    this.setState({fetchingBooks: true});
+    BooksApi.getBooks().then((response) => {
+      console.log(response);
+      this.addBooks(response.data);
+    });
+  };
+
+  addBooks = (books) => {
+    this.setState({ books, fetchingBooks: false});
+  };
+
   filteredBooks = () => {
     if (this.props.filterText === '' || this.props.filterType === '') {
-      return myBooks;
+      return this.state.books;
     }
-    return myBooks.filter(book => {
+    return (this.state.books).filter(book => {
       return book[this.props.filterType].toUpperCase().includes(this.props.filterText.toUpperCase());
     });
   }
 
   render(){
+    if (this.state.fetchingBooks) {
+      return (
+        <div className="loading-container">
+          <b className="loading">Se estan buscando los libros</b>
+        </div>
+      )
+    }
      return (
        <div className="grid">
         {this.filteredBooks().map(item =>
           <Link to={"/books/" + item.id} key={item.id}>
             <div className="book">
-            {(item.image_url == null) ? (
-              <img className="default-book-icon" src={defaultBookIcon} alt="book cover"/>
-            ) : (
-              <img className="book-icon" src={item.image_url} alt="Book cover"/>
-            )}
+              <BookCover imageUrl={item.image_url} defaultCover="default-book-icon" cover="book-icon"/>
               <b className="book-title" >{item.title}</b>
               <p className="book-author" >{item.author}</p>
             </div>
