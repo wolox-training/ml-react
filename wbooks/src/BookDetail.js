@@ -6,18 +6,12 @@ import './BookDetail.css';
 
 class BookDetail extends Component {
   render() {
-    var book = myBooks.find(book => {
-      return book.id == this.props.match.params.id;
-    })
+    const book = myBooks.find(book => book.id === this.props.match.params.id);
     return (
       <div className="body">
         <Link className="back" to={'/dashboard'}>&lt; Volver</Link>
         <div className="book-detail">
-        {(book.image_url === null) ? (
-          <img className="default-book-cover" src={defaultBookIcon} alt="Book cover"/>
-        ) : (
-          <img className="book-cover" src={book.image_url} alt="Book cover"/>
-        )}
+          <BookCover imageUrl={book.image_url} defaultCover="default-book-cover" cover="book-cover" />
           <div className="book-info">
             <b className="title">{book.title} </b>
             <p className="author">{book.author} </p>
