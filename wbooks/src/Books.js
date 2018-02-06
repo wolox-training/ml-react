@@ -20,7 +20,7 @@ class Books extends Component {
      return (
        <div className="grid">
         {this.filteredBooks().map(item =>
-          <Link to={"/books/${item.id}"} key={item.id}>
+          <Link to={`/books/${item.id}`} key={item.id}>
             <div className="book">
               <BookCover imageUrl={item.image_url} defaultCover="default-book-icon" cover="book-icon"/>
               <b className="book-title" >{item.title}</b>
