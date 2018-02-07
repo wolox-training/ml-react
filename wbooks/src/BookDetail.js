@@ -11,7 +11,8 @@ class BookDetail extends Component {
     this.state = {
       book: [],
       notFound: false,
-      fetchingBooks: false}
+      fetchingBook: false,
+      error: false}
   };
 
   componentDidMount() {
@@ -21,6 +22,8 @@ class BookDetail extends Component {
     }).catch((error) => {
       if (error.response.status === '400') {
         this.setState({notFound: true, fetchingBook: false});
+      } else {
+        this.setState({fetchingBook: false, error: true})
       }
     })
   }
@@ -30,19 +33,28 @@ class BookDetail extends Component {
   }
 
   render() {
+    if (this.state.error) {
+      return (
+        <div className="body">
+          <b className='error-message'>Hubo un problema, vuelva intentar maś tarde</b>
+        </div>
+      );
+    }
+
     if (this.state.fetchingBook) {
       return (
         <div className="body">
           <b className='loading'>Se está buscando el libro</b>
         </div>
-      )
-    } else if (this.state.notFound) {
+      );
+    }
+    if (this.state.notFound) {
       return (
         <div className="body">
-          <Link className="back" to={'/dashboard'}>&lt; Volver</Link>
-          <b className="not-found">This is not the book you were looking for</b>
+          <Link className="back" to="/dashboard">&lt; Volver</Link>
+          <b className="error-message">This is not the book you were looking for</b>
         </div>
-      )
+      );
     }
     const book = this.state.book;
     return (
