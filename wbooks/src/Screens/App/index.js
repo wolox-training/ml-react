@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import logo from './wbooks_logo.svg';
-import notifications from './notifications.svg';
-import addBook from './add_book.svg';
-import './App.css';
-import Dashboard from './Dashboard'
-import BookDetail from './BookDetail'
+import logo from '../../Assets/wbooks_logo.svg';
+import notifications from '../../Assets/notifications.svg';
+import addBook from '../../Assets/add_book.svg';
+import './styles.css';
+import Dashboard from './Screens/Dashboard';
+import BookDetails from './Screens/BookDetails';
 
 class App extends Component {
 
@@ -22,7 +22,7 @@ class App extends Component {
         </header>
         <Switch>
           <Route exact path='/dashboard' component={Dashboard}/>
-          <Route path='/books/:id' component={BookDetail}/>
+          <Route path='/books/:id' component={BookDetails}/>
         </Switch>
       </div>
     );

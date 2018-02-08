@@ -1,72 +1,42 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import defaultBookIcon from './default_book.svg';
-import './BookDetail.css';
-import BooksApi from './services/BooksApi'
-import BookCover from './BookCover'
+import defaultBookIcon from '../../../../Assets/default_book.svg'
+import './styles.css';
+import BooksApi from '../../../../services/BooksApi'
+import BookCover from '../../Components/BookCover'
 
 class BookDetail extends Component {
-  constructor() {
-    super();
-    this.state = {
-      book: [],
-      notFound: false,
-      fetchingBook: false,
-      error: false}
+  componentDidMount() {
+    this.props.onLoading();
+    this.props.onFetchBook(this.props.match.params.id);
   };
 
-  componentDidMount() {
-    this.setState({fetchingBook: true})
-    BooksApi.getBook(this.props.match.params.id).then((response) => {
-      this.setBook(response.data);
-    }).catch((error) => {
-      if (error.response.status === '400') {
-        this.setState({notFound: true, fetchingBook: false});
-      } else {
-        this.setState({fetchingBook: false, error: true})
-      }
-    })
-  }
-
-  setBook = (book) => {
-    this.setState({book, fetchingBook: false})
-  }
-
   render() {
-    if (this.state.error) {
-      return (
-        <div className="body">
-          <b className='error-message'>Hubo un problema, vuelva intentar maś tarde</b>
-        </div>
-      );
-    }
-
-    if (this.state.fetchingBook) {
+    if (this.props.fetchingBook) {
       return (
         <div className="body">
           <b className='loading'>Se está buscando el libro</b>
         </div>
       );
     }
-    if (this.state.notFound) {
+    if (this.props.notFound) {
       return (
         <div className="body">
-          <Link className="back" to="/dashboard">&lt; Volver</Link>
-          <b className="error-message">This is not the book you were looking for</b>
+          <Link className="back" to={'/dashboard'}>&lt; Volver</Link>
+          <b className="not-found">This is not the book you were looking for</b>
         </div>
       );
     }
-    const book = this.state.book;
     return (
       <div className="body">
-        <Link className="back" to={'/dashboard'}>&lt; Volver</Link>
+        <Link className="back" to="/dashboard">&lt; Volver</Link>
           <div className="book-detail">
-            <BookCover imageUrl={book.image_url} defaultCover="default-book-cover" cover="book-cover" />
+            <BookCover imageUrl={this.props.book.image_url} defaultCover="default-book-cover" cover="book-cover" />
             <div className="book-info">
-              <b className="title">{book.title} </b>
-              <p className="author">{book.author} </p>
-              <p className="year">{book.year} </p>
-              <p className="genre">{book.genre} </p>
+              <b className="title">{this.props.book.title} </b>
+              <p className="author">{this.props.book.author} </p>
+              <p className="year">{this.props.book.year} </p>
+              <p className="genre">{this.props.book.genre} </p>
               <p className="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
               <button className="rent-button">Alquilar</button>
             </div>
