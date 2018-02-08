@@ -1,9 +1,10 @@
-import {ADD_BOOK, START_LOADING, NOT_FOUND} from './actions'
+import {ADD_BOOK, START_LOADING, NOT_FOUND, ERROR} from './actions'
 
 const initialState = {
   book: {},
   notFound: false,
-  fetchingBook: false
+  fetchingBook: false,
+  error: false
 };
 
 export default function books(state = initialState, action) {
@@ -26,6 +27,12 @@ export default function books(state = initialState, action) {
         ...state,
         notFound: true,
         fetchingBook: false
+      }
+      break;
+    case ERROR:
+      return {
+        ...state,
+        error: true
       }
       break;
     default:

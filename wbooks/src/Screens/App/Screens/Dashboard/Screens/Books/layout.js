@@ -11,6 +11,13 @@ class Books extends Component {
   };
 
   render(){
+    if (this.props.error) {
+      return (
+        <div className="loading-container">
+          <b className="not-found">Ocurrió un error buscando su libro, por favor intente nuevamente más tarde</b>
+        </div>
+      )
+    }
     if (this.props.isLoading) {
       return (
         <div className="loading-container">

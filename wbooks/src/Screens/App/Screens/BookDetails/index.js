@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import {addBook, startLoading, notFound} from '../../../../redux/BookDetail/actions'
+import {addBook, startLoading, notFound, error} from '../../../../redux/BookDetail/actions'
 import BooksApi from '../../../../services/BooksApi'
 import BookDetail from './present'
 
@@ -14,12 +14,12 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
   return {
     onFetchBook: (bookId) => {
-      dispatch(startLoading);
-      BooksApi.getBook(bookId).then((response) => {
-        dispatch(addBook(response.data));
-      }).catch((error) => {
-        if (error.response.status === '400') {
+      BooksApi.getBook(bookId).then(
+        response => dispatch(addBook(response.data)),
+        error => {if (error.response.status == '400') {
           dispatch(notFound())
+        } else {
+          dispatch(error())
         }
       });
     }

@@ -11,6 +11,14 @@ class BookDetail extends Component {
   };
 
   render() {
+    if (this.props.error) {
+      return (
+        <div className="body">
+          <Link className="back" to={'/dashboard'}>&lt; Volver</Link>
+          <b className="not-found">Ocurrió un error buscando su libro, por favor intente nuevamente más tarde</b>
+        </div>
+      )
+    }
     if (this.props.fetchingBook) {
       return (
         <div className="body">
@@ -22,7 +30,7 @@ class BookDetail extends Component {
       return (
         <div className="body">
           <Link className="back" to={'/dashboard'}>&lt; Volver</Link>
-          <b className="not-found">This is not the book you were looking for</b>
+          <b className="not-found">This is not the book you are looking for</b>
         </div>
       );
     }

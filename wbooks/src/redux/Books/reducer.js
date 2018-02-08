@@ -1,8 +1,9 @@
-import {ADD_BOOKS, START_LOADING} from './actions'
+import {ADD_BOOKS, START_LOADING, ERROR} from './actions'
 
 const initialState = {
   books: [],
   fetchingBooks: false,
+  error: false
 };
 
 export default function books(state = initialState, action) {
