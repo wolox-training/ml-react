@@ -1,6 +1,7 @@
 import React from 'react';
 import defaultBookIcon from './default_book.svg'
 
+
 const BookCover = (props) => (props.imageUrl === null) ? (
   <img className={props.defaultCover} src={defaultBookIcon} alt="book cover"/>
   ) : (

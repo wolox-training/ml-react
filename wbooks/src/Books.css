@@ -36,3 +36,14 @@
   width: 128px;
   margin-bottom: 10px;
 }
+
+.loading-container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding: 35px 34px;
+}
+
+.loading {
+  text-align: center;
+}
