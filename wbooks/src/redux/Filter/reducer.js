@@ -1,4 +1,4 @@
-import {FILTER_TITLE, FILTER_AUTHOR, APPLY_FILTER, filters} from './actions'
+import {CHANGE_FILTER, APPLY_FILTER, filters} from './actions'
 
 const initialState = {
   filterType: 'author',
@@ -7,15 +7,10 @@ const initialState = {
 
 export default function filter(state = initialState, action) {
   switch (action.type) {
-    case FILTER_TITLE:
+    case CHANGE_FILTER:
       return {
         ...state,
-        filterTypeChange: filters.TITLE
-      };
-    case FILTER_AUTHOR:
-      return {
-        ...state,
-        filterTypeChange: filters.AUTHOR
+        filterTypeChange: action.payload
       };
     case APPLY_FILTER:
       return {

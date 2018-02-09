@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import {applyFilter, filterTitle, filterAuthor} from '../../../../redux/Filter/actions'
+import {applyFilter, changeFilter} from '../../../../redux/Filter/actions'
 import {changeText, applyText} from '../../../../redux/Text/actions'
 import Dashboard from './present'
 
@@ -10,7 +10,7 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = dispatch => {
   return {
     onClick: () => {
       dispatch(applyText());
@@ -20,11 +20,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
       dispatch(changeText(newText));
     },
     onFilterChange: (filterType) => {
-      if (filterType === 'author') {
-        dispatch(filterAuthor());
-      } else {
-        dispatch(filterTitle());
-      }
+      dispatch(changeFilter(filterType));
     }
   }
 }

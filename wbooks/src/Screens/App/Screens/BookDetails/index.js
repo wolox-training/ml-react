@@ -11,9 +11,10 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = dispatch => {
   return {
     onFetchBook: (bookId) => {
+      dispatch(startLoading);
       BooksApi.getBook(bookId).then((response) => {
         dispatch(addBook(response.data));
       }).catch((error) => {
@@ -21,9 +22,6 @@ const mapDispatchToProps = (dispatch, ownProps) => {
           dispatch(notFound())
         }
       });
-    },
-    onLoading: () => {
-      dispatch(startLoading());
     }
   }
 }

@@ -10,16 +10,14 @@ const mapStateToProps = state => {
   }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = dispatch => {
   return {
     onFetchBooks: () => {
+      dispatch(startLoading());
       BooksApi.getBooks().then((response) => {
         dispatch(addBooks(response.data));
       });
     },
-    onLoading: () => {
-      dispatch(startLoading());
-    }
   }
 }
 

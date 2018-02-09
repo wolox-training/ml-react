@@ -1,5 +1,4 @@
-export const FILTER_TITLE = 'FILTER@@FILTER_TITLE';
-export const FILTER_AUTHOR = 'FILTER@@FILTER_AUTHOR';
+export const CHANGE_FILTER = 'FILTER@@CHANGE_FILTER';
 export const APPLY_FILTER = 'FILTER@@APPLY_FILTER';
 
 export const filters = {
@@ -7,12 +6,8 @@ export const filters = {
   AUTHOR: 'author'
 };
 
-export function filterTitle() {
-  return {type: FILTER_TITLE};
-};
-
-export function filterAuthor() {
-  return {type: FILTER_AUTHOR};
+export function changeFilter(payload) {
+  return {type: CHANGE_FILTER, payload};
 };
 
 export function applyFilter() {

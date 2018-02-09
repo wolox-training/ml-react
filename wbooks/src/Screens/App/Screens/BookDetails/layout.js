@@ -7,7 +7,6 @@ import BookCover from '../../Components/BookCover'
 
 class BookDetail extends Component {
   componentDidMount() {
-    this.props.onLoading();
     this.props.onFetchBook(this.props.match.params.id);
   };
 

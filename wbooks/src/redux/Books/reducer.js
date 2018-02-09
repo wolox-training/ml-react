@@ -1,9 +1,8 @@
-import {ADD_BOOKS, START_LOADING, OPEN_BOOK} from './actions'
+import {ADD_BOOKS, START_LOADING} from './actions'
 
 const initialState = {
   books: [],
   fetchingBooks: false,
-  openBook: ""
 };
 
 export default function books(state = initialState, action) {
@@ -19,12 +18,6 @@ export default function books(state = initialState, action) {
       return {
         ...state,
         fetchingBooks: true
-      };
-      break;
-    case OPEN_BOOK:
-      return {
-        ...state,
-        openBook: action.payload
       };
       break;
     default:

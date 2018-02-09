@@ -7,7 +7,6 @@ import BookCover from '../../../../Components/BookCover'
 class Books extends Component {
 
   componentDidMount() {
-    this.props.onLoading();
     this.props.onFetchBooks();
   };
 
