@@ -5,12 +5,14 @@ import books from './Books/reducer';
 import filter from './Filter/reducer';
 import bookDetail from './BookDetail/reducer';
 import thunk from 'redux-thunk';
+import { reducer as formReducer } from 'redux-form'
 
 const wBooks = combineReducers({
   text,
   books,
   filter,
-  bookDetail
+  bookDetail,
+  form: formReducer
 });
 
 export const store = createStore(
