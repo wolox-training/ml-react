@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
-import {addBooks, startLoading, error, fetchBooks} from '../../../../../../redux/Books/actions'
-import BooksApi from '../../../../../../services/BooksApi'
+import {fetchBooks} from '../../../../../../redux/Books/actions'
 import Books from './present'
 
 const mapStateToProps = state => {
@@ -14,7 +13,7 @@ const mapDispatchToProps = dispatch => {
   return {
     onFetchBooks: () => {
       dispatch(fetchBooks());
-    },
+    }
   }
 }
 
