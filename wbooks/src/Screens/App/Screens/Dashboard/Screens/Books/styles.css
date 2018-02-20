@@ -20,6 +20,7 @@
 }
 
 .book-title {
+  font-weight: bold;
   font-size: 14px;
 }
 
@@ -45,5 +46,10 @@
 }
 
 .loading {
+  font-weight: bold;
   text-align: center;
+}
+
+.not-found {
+  font-weight: bold;
 }

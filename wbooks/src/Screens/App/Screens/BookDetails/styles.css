@@ -39,6 +39,7 @@
 }
 
 .title {
+  font-weight: bold;
   font-size: 20px;
 }
 
@@ -90,6 +91,7 @@
 }
 
 .section-title {
+  font-weight: bold;
   font-size:20px;
   color:#a5cd39;
 }
@@ -127,6 +129,7 @@
 }
 
 .comment {
+  font-weight: bold;
   font-size:14px;
 }
 
@@ -151,4 +154,8 @@
   font-size:16px;
   font-weight: bold;
   color: #fff;
+}
+
+.not-found {
+  font-weight: bold;
 }

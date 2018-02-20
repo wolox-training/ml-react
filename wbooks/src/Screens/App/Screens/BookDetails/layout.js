@@ -11,6 +11,14 @@ class BookDetail extends Component {
   };
 
   render() {
+    if (this.props.error) {
+      return (
+        <div className="body">
+          <Link className="back" to="/dashboard">&lt; Volver</Link>
+          <span className="not-found">Ocurrió un error buscando su libro, por favor intente nuevamente más tarde</span>
+        </div>
+      )
+    }
     if (this.props.fetchingBook) {
       return (
         <div className="body">
@@ -21,8 +29,8 @@ class BookDetail extends Component {
     if (this.props.notFound) {
       return (
         <div className="body">
-          <Link className="back" to={'/dashboard'}>&lt; Volver</Link>
-          <b className="not-found">This is not the book you were looking for</b>
+          <Link className="back" to="/dashboard">&lt; Volver</Link>
+          <b className="not-found">This is not the book you are looking for</b>
         </div>
       );
     }
@@ -32,7 +40,7 @@ class BookDetail extends Component {
           <div className="book-detail">
             <BookCover imageUrl={this.props.book.image_url} defaultCover="default-book-cover" cover="book-cover" />
             <div className="book-info">
-              <b className="title">{this.props.book.title} </b>
+              <span className="title">{this.props.book.title} </span>
               <p className="author">{this.props.book.author} </p>
               <p className="year">{this.props.book.year} </p>
               <p className="genre">{this.props.book.genre} </p>
@@ -42,7 +50,7 @@ class BookDetail extends Component {
           </div>
           <div className="separation" />
           <div className="sugestions">
-            <b className="section-title">Sugerencias</b>
+            <span className="section-title">Sugerencias</span>
             <div className="sugestions-list">
               <img className="sugestions-placeholder" src={defaultBookIcon} alt="Book cover"/>
               <img className="sugestions-placeholder" src={defaultBookIcon} alt="Book cover"/>
@@ -52,11 +60,11 @@ class BookDetail extends Component {
           </div>
           <div className="separation" />
           <div className="comments">
-            <b className="section-title">Comentarios</b>
+            <span className="section-title">Comentarios</span>
             <div className="new-comment">
               <img className="profile-icon" src={defaultBookIcon} alt="Profile Icon"/>
               <div className="write-comment">
-                <b className="comment">Agregar comentario</b>
+                <span className="comment">Agregar comentario</span>
                 <form className="comment-container" onSubmit={this.handleSubmit}>
                   <input className="comment-bar" type="text" onChange={this.handleChange} />
                   <button className="comment-button" type="submit" value="Submit"
