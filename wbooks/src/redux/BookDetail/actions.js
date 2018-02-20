@@ -15,7 +15,7 @@ export function fetchBook() {
     dispatch(startLoading());
     BooksApi.getBook(bookId).then(
       response => dispatch(addBook(response.data)),
-      error => {if (error.response.status == '400') {
+      error => {if (error.response.status === '400') {
         dispatch(notFound())
       } else {
         dispatch(error())

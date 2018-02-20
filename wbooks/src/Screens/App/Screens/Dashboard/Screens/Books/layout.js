@@ -14,14 +14,14 @@ class Books extends Component {
     if (this.props.error) {
       return (
         <div className="loading-container">
-          <b className="not-found">Ocurrió un error buscando su libro, por favor intente nuevamente más tarde</b>
+          <span className="not-found">Ocurrió un error buscando su libro, por favor intente nuevamente más tarde</span>
         </div>
       )
     }
     if (this.props.isLoading) {
       return (
         <div className="loading-container">
-          <b className="loading">Se estan buscando los libros</b>
+          <span className="loading">Se estan buscando los libros</span>
         </div>
       );
     }
@@ -31,7 +31,7 @@ class Books extends Component {
           <Link to={`/books/${item.id}`} key={item.id}>
             <div className="book">
               <BookCover imageUrl={item.image_url} defaultCover="default-book-icon" cover="book-icon"/>
-              <b className="book-title" >{item.title}</b>
+              <span className="book-title" >{item.title}</span>
               <p className="book-author" >{item.author}</p>
             </div>
           </Link >)}
