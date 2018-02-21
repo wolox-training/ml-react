@@ -10,7 +10,7 @@ export function addBook(payload) {
   return {type: ADD_BOOK, payload};
 };
 
-export function fetchBook() {
+export function fetchBook(bookId) {
   return (dispatch) => {
     dispatch(startLoading());
     BooksApi.getBook(bookId).then(
