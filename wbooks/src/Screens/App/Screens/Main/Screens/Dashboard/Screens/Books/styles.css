@@ -1,0 +1,55 @@
+.grid {
+  display: grid;
+  flex-flow: row wrap;
+  justify-content: center;
+  grid-template-columns: repeat(4, minmax(auto, 128px));
+  grid-column-gap: 70px;
+  grid-row-gap: 65px;
+  margin-top: 65px;
+}
+
+.book {
+  display: flex;
+  flex-flow: column  wrap;
+  max-width: 128px;
+}
+
+.book-author {
+  font-size: 12px;
+  margin: 0;
+}
+
+.book-title {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.default-book-icon {
+  height: 75px;
+  width: 75px;
+  padding: 54px 26px;
+  margin-bottom: 10px;
+  background-color: #d8d8d8;
+}
+
+.book-icon {
+  height: 182px;
+  width: 128px;
+  margin-bottom: 10px;
+}
+
+.loading-container {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  padding: 35px 34px;
+}
+
+.loading {
+  text-align: center;
+  font-weight: bold;
+}
+
+.not-found {
+  font-weight: bold;
+}

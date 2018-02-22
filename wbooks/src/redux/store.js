@@ -4,13 +4,17 @@ import text from './Text/reducer';
 import books from './Books/reducer';
 import filter from './Filter/reducer';
 import bookDetail from './BookDetail/reducer';
+import logIn from './LogIn/reducer'
+import { reducer as formReducer } from 'redux-form'
 import thunk from 'redux-thunk';
 
 const wBooks = combineReducers({
   text,
   books,
   filter,
-  bookDetail
+  bookDetail,
+  logIn,
+  form: formReducer
 });
 
 export const store = createStore(

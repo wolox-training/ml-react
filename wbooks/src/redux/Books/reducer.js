@@ -21,6 +21,12 @@ export default function books(state = initialState, action) {
         fetchingBooks: true
       };
       break;
+    case ERROR:
+      return {
+        ...state,
+        error: true
+      };
+      break;
     default:
     return state;
   }
