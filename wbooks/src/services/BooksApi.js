@@ -5,6 +5,9 @@ export default {
     return api.get('/books');
   },
   getBook(bookId) {
-    return api.get('/books/' + bookId)
+    return api.get(`/books/${bookId}`)
+  },
+  getBookRents(bookId) {
+    return api.get(`/books/${bookId}/rents`)
   }
 }

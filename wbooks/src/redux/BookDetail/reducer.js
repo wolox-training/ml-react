@@ -1,10 +1,12 @@
-import {ADD_BOOK, START_LOADING, NOT_FOUND, ERROR} from './actions'
+import {ADD_BOOK, START_LOADING, NOT_FOUND, ERROR, NOT_AVAILABLE, WISH} from './actions'
 
 const initialState = {
   book: {},
   notFound: false,
   fetchingBook: false,
-  error: false
+  error: false,
+  available: true,
+  wish: false
 };
 
 export default function books(state = initialState, action) {
@@ -35,6 +37,17 @@ export default function books(state = initialState, action) {
         error: true
       }
       break;
+    case NOT_AVAILABLE:
+      return {
+        ...state,
+        available: false
+      }
+      break;
+    case WISH:
+      return {
+        ...state,
+        wish: true
+      }
     default:
       return state;
   }
