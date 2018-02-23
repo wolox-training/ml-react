@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import {applyFilter} from '../../../../../../redux/Filter/actions'
-import {changeText, applyText} from '../../../../../../redux/Text/actions'
-import Dashboard from './present'
+import {applyText} from '../../../../../../redux/Text/actions'
+import Dashboard from './layout'
 
 const mapStateToProps = state => {
   return {

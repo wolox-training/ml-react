@@ -12,7 +12,7 @@ export function startLoading() {
   return {type: START_LOADING};
 };
 
-export function error() {
+export function errorAction() {
   return {type: ERROR};
 };
 

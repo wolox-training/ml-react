@@ -1,4 +1,4 @@
-import {TOKEN_KEY} from '../../config/api'
+import {TOKEN_KEY, USER_ID} from '../../config/api'
 import AcountApi from '../../services/AcountApi'
 
 export const LOG_IN = "LOGIN@@LOG_IN";
@@ -15,6 +15,7 @@ export function logUser(user, pass) {
       response => {
         AcountApi.updateToken(response.data.access_token);
         localStorage.setItem(TOKEN_KEY, response.data.access_token);
+        saveUser();
         dispatch(logIn());},
       error => console.log(error)
       )
@@ -45,4 +46,10 @@ export function siggnedUp() {
 
 export function logOut() {
   return {type:LOG_OUT};
+}
+
+function saveUser() {
+  AcountApi.getUserInfo().then(
+    response => localStorage.setItem(USER_ID, response.data.id)
+  )
 }

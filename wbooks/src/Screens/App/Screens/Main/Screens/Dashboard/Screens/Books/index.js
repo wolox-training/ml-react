@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
-import actions from '../../../../../../../../redux/Books/actions'
-import {addBooks, startLoading, error} from '../../../../../../../../redux/Books/actions'
+import {addBooks, startLoading, errorAction} from '../../../../../../../../redux/Books/actions'
 import BooksApi from '../../../../../../../../services/BooksApi'
-import Books from './present'
+import Books from './layout'
 
 const mapStateToProps = state => {
   return {
     books: (state.books.books).filter(book => book[state.filter.filterType].toUpperCase().includes(state.text.searchText.toUpperCase())),
-    fetchingBooks: state.books.fetchingBooks
+    fetchingBooks: state.books.fetchingBooks,
+    isLoading: false
   }
 }
 
@@ -16,7 +16,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     onFetchBooks: () => {
       BooksApi.getBooks().then(
         response => dispatch(addBooks(response.data)),
-        error => console.log(error)
+        error => dispatch(errorAction())
       )
     },
     onLoading: () => {

@@ -1,30 +1,30 @@
 import { connect } from 'react-redux';
-import {addBook, startLoading, notFound, error} from '../../../../../../redux/BookDetail/actions'
+import {fetchBook, startLoading, addWish} from '../../../../../../redux/BookDetail/actions'
 import BooksApi from '../../../../../../services/BooksApi'
-import BookDetail from './present'
+import AcountApi from '../../../../../../services/AcountApi'
+import BookDetail from './layout'
+import moment from 'moment';
 
 const mapStateToProps = state => {
   return {
     book: state.bookDetail.book,
     notFound: state.bookDetail.notFound,
-    fetchingBook: state.bookDetail.fetchingBook
+    fetchingBook: state.bookDetail.fetchingBook,
+    available: state.bookDetail.available,
+    wish: state.bookDetail.wish
   }
 }
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onFetchBook: (bookId) => {
-      BooksApi.getBook(bookId).then(
-        response => dispatch(addBook(response.data)),
-        error => {if (error.response.status == '400') {
-          dispatch(notFound())
-        } else {
-          dispatch(error())
-        }
-      });
+      dispatch(fetchBook(bookId))
     },
     onLoading: () => {
       dispatch(startLoading());
+    },
+    onWish: (bookId) => {
+      dispatch(addWish(bookId))
     }
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import LogIn from './Screens/LogIn'
 import Main from './Screens/Main'
 import SignUp from './Screens/SignUp'

@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import {logOut} from '../../../../redux/LogIn/actions'
 import AcountApi from '../../../../services/AcountApi'
-import Main from './presenter'
+import Main from './layout'
 import {TOKEN_KEY} from '../../../../config/api'
 
 const mapStateToProps = state => {
-  return
+  return {
+
+  }
 };
 
 const mapDispatchToProps = dispatch => {
