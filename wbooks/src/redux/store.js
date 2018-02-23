@@ -7,6 +7,7 @@ import bookDetail from './BookDetail/reducer';
 import logIn from './LogIn/reducer'
 import { reducer as formReducer } from 'redux-form'
 import thunk from 'redux-thunk';
+import { reducer as formReducer } from 'redux-form'
 
 const wBooks = combineReducers({
   text,
